@@ -16,7 +16,7 @@
     <div id="dal_loading"></div>
     
     <div id="sidebar">
-      <a show="Home at #main">Go Home</a>
+      <a href="#" show="Home at #main">&larr; Go Home</a><br><br>
       
       <form for="Contact" email="dallas@excitecreative.ca" email-template="New Signup">
         <input name="Name" placeholder="Name" shortcut="f" refocus><br>
@@ -37,7 +37,7 @@
   </body>
   
   <daltemplate name="Contact">
-    <li><a show="Contact Details at #main">{{ name }}</a></li>
+    <li><a href="#" show="Contact Details at #main">{{ name }}</a></li>
   </daltemplate>
 
   <daltemplate name="Contact Details">
@@ -58,15 +58,15 @@
 
   <daltemplate name="Message">
     <li>
-      <b><a show="Home at #main">{{ user.name }}</a> about <a show="Contact Details at #main">{{ contact.name }}</a>: </b>
-      <a show="Message Details at #main">{{ body }}</a>
+      <b><a href="#" show="Home at #main">{{ user.name }}</a> about <a href="#" show="Contact Details at #main">{{ contact.name }}</a>: </b>
+      <a href="#" show="Message Details at #main">{{ body }}</a>
     </li>
   </daltemplate>
 
   <daltemplate name="Message Details">
     <div>
       <h1>{{ body }}</h1>
-      <a show="Contact Details at #main">{{ contact.name }}</a>
+      <a href="#" show="Contact Details at #main">{{ contact.name }}</a>
     </div>
   </daltemplate>
 
@@ -76,8 +76,8 @@
 
   <daltemplate name="Message Short">
     <li>
-      <b><a show="Contact Details at #main">{{ contact.name }}</a>: </b>
-      <a show="Message Details at #main">{{ body }}</a>
+      <b><a href="#" show="Contact Details at #main">{{ contact.name }}</a>: </b>
+      <a href="#" show="Message Details at #main">{{ body }}</a>
     </li>
   </daltemplate>
 
@@ -90,10 +90,10 @@
   <script type="text/javascript" charset="utf-8">
     // SEED DATA
     $(function(){
-      Dal.create({ model: "Contact", name: "Melanie", birthday: "September 5, 1988" });
-      Dal.create({ model: "Contact", name: "Reanna", birthday: "April 22, 1987" });
-      Dal.create({ model: "Contact", name: "Dallas", birthday: "April 5, 1988" });
-      Dal.create({ model: "Contact", name: "Ricky", birthday: "August 29, 1958" });
+      Dal.create({ model: "Contact", name: "Person #1", birthday: "September 5, 1988" });
+      Dal.create({ model: "Contact", name: "Person #2", birthday: "April 22, 1987" });
+      Dal.create({ model: "Contact", name: "Person #3", birthday: "April 5, 1988" });
+      Dal.create({ model: "Contact", name: "Person #4", birthday: "August 29, 1958" });
     });
   </script>
 </html>

@@ -1,4 +1,4 @@
-# DALJS :: Easy-Peasy Development
+# DalJS :: Easy-Peasy Development
 
 Use only HTML to create dynamic applications in a jiffy.
 
@@ -11,11 +11,14 @@ Use only HTML to create dynamic applications in a jiffy.
 
 ## Compiling & Minifying
 
-Install uglifier.
+Install uglifier:
+
 `gem install uglifier`
 
-CD into main directory.
+CD into main directory:
+
 `cd daljs`
 
-Uglify it.
-`File.open("dal.min.js", 'w') { |file| file.write Uglifier.compile( Dir.glob(["lib/dependencies/*", "lib/*"]).map{|f| File.directory?(f) ? nil : File.read(f)}.join("\n"), comments: :none) }`
+Uglify it:
+
+`daljs = Uglifier.compile( Dir.glob(["lib/dependencies/*", "lib/*"]).map{|f| File.directory?(f) ? nil : File.read(f)}.join("\n"), comments: :none); File.open("examples/assets/dal.min.js", 'w') { |file| file.write(daljs) }`

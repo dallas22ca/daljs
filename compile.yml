@@ -1,4 +1,0 @@
-stylesheets:
-  common:
-    - daljs/dependencies/*.js
-    - daljs/*.js

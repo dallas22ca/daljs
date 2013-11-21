@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <script src="daljs/dependencies/jquery-1.9.1.js"></script>
+    <script src="daljs/dependencies/jquery.cookie.js"></script>
+    <script src="daljs/dependencies/underscore.js"></script>
+    <script src="daljs/dependencies/moustache.js"></script>
+    <script src="daljs/models.js"></script>
+    <script src="daljs/events.js"></script>
+    <link rel="stylesheet" href="dal.css" type="text/css" media="screen" charset="utf-8">
+  </head>
+  <body>
+    
+    <div id="dal_loading"></div>
+    
+    <div id="sidebar">
+      <a show="Home at #main">Go Home</a>
+      
+      <form for="Contact" email="dallas@excitecreative.ca" email-template="New Signup">
+        <input name="Name" placeholder="Name" shortcut="f" refocus><br>
+        <input name="Birthday" placeholder="Birthday"><br>
+        <input type="submit">
+      </form>
+      
+      <ul collection="Contacts"></ul>
+    </div>
+    
+    <div id="main" startup="Home"></div>
+    
+    <div id="rightbar">
+      Newsfeed:
+      <ul collection="Messages" belongs-to="Contact" template="Message Short" sort="desc"></ul>
+    </div>
+    
+  </body>
+
+  <template name="Contact">
+    <li><a show="Contact Details at #main | Contact Birthday Widget at #birthday">{{ name }}</a></li>
+  </template>
+  
+  <template name="Contact Details">
+    <div>
+      <h2 editable="name">{{ name }}</h2>
+      <p editable="birthday">{{ birthday }}</p>
+      
+      <hr />
+    
+      <form for="Message">
+        <input name="Body">
+        <input type="submit">
+      </form>
+
+      <ul collection="Messages" belongs-to="Contact" read="everyone" write="creator"></ul>
+    </div>
+  </template>
+  
+  <template name="Message">
+    <li>
+      <b><a show="Home at #main">{{ user.name }}</a> about <a show="Contact Details at #main">{{ contact.name }}</a>: </b>
+      <a show="Message Details at #main">{{ body }}</a>
+    </li>
+  </template>
+  
+  <template name="Message Details">
+    <div>
+      <h1>{{ body }}</h1>
+      <a show="Contact Details at #main">{{ contact.name }}</a>
+    </div>
+  </template>
+  
+  <template name="Home">
+    <div>Home page Template</div>
+  </template>
+  
+  <template name="Message Short">
+    <li>
+      <b><a show="Contact Details at #main">{{ contact.name }}</a>: </b>
+      <a show="Message Details at #main">{{ body }}</a>
+    </li>
+  </template>
+  
+  <template name="New Signup">
+    We have a new signup named {{ name }}!
+    {{ var_table }}
+    Thanks for signing up!
+  </template>
+</html>

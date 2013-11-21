@@ -1,0 +1,34 @@
+body {
+  padding-left: 240px;
+  padding-right: 240px;
+}
+
+#sidebar {
+  position: fixed;
+  left: 0;
+  width: 200px;
+  top: 0;
+  bottom: 0;
+  background: #eee;
+  padding: 20px;
+}
+
+#rightbar {
+  position: fixed;
+  right: 0;
+  width: 200px;
+  top: 0;
+  bottom: 0;
+  background: #eee;
+  padding: 20px;
+}
+
+#dal_loading {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #ccc;
+  z-index: 999;
+}

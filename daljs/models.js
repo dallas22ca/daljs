@@ -23,9 +23,11 @@ var Dal = {
     } else {
       var collection = Dal.pluralize(obj.model);
       $("[collection='" + collection + "']").each(function() {
-        var template_name = $(this).attr("template");
-        if (!template_name){ template_name = obj.model; }
-        Dal.useTemplate($(this), template_name, obj, "add");
+        if (!$(this).parents("template").length) {
+          var template_name = $(this).attr("template");
+          if (!template_name) { template_name = obj.model; }
+          Dal.useTemplate($(this), template_name, obj, "add"); 
+        }
       });
     }
   },
@@ -37,7 +39,7 @@ var Dal = {
   },
   
   useTemplate: function(placer, name, obj, strategy) {
-    var clone = $("template[name='" + name + "']").clone();
+    var clone = $("daltemplate[name='" + name + "']").clone();
     var wrapper = $("<div />").html(clone.html());
     var first_child = wrapper.find(":first");
     
@@ -72,15 +74,18 @@ var Dal = {
     
     $("[collection]").each(function() {
       var model = { name: Dal.singularize($(this).attr("collection")) }
+      var template = $(this).closest("daltemplate");
       model.belongs_to = [];
-      
+
       if ($(this).attr("belongs-to")) { model.belongs_to = $(this).attr("belongs-to").split("|"); }
       if ($(this).attr("read")) { model.read = $(this).attr("read"); }
       if ($(this).attr("write")) { model.write = $(this).attr("write"); }
-      
-      $(this).closest("template[name]").each(function(){
-        model.belongs_to.push($(this).attr("name").split(" ")[0]);
-      });
+
+      if (template.length) {
+        if (template.attr("name")) {
+          model.belongs_to.push(template.attr("name").split(" ")[0]);  
+        }
+      }
       
       if (typeof Dal.models[model.name] !== "undefined") {
         model.belongs_to = _.uniq(Dal.models[model.name].belongs_to.concat(model.belongs_to));

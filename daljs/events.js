@@ -1,5 +1,5 @@
 $(function() {
-  $("template").hide();
+  $("daltemplate").hide();
   Dal.init();
   Dal.create({ model: "Contact", name: "Melanie", birthday: "September 5, 1988" });
   Dal.create({ model: "Contact", name: "Reanna", birthday: "April 22, 1987" });

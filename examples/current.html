@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>App</title>
+    <!-- All files shrink into dal.min.js ~ 120kb -->
     <script src="../lib/dependencies/jquery-1.9.1.js"></script>
     <script src="../lib/dependencies/jquery.cookie.js"></script>
     <script src="../lib/dependencies/moustache.js"></script>
@@ -91,6 +92,8 @@
     $(function(){
       Dal.create({ model: "Contact", name: "Melanie", birthday: "September 5, 1988" });
       Dal.create({ model: "Contact", name: "Reanna", birthday: "April 22, 1987" });
+      Dal.create({ model: "Contact", name: "Dallas", birthday: "April 5, 1988" });
+      Dal.create({ model: "Contact", name: "Ricky", birthday: "August 29, 1958" });
     });
   </script>
 </html>

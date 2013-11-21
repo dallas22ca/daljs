@@ -11,12 +11,8 @@ Use only HTML to create dynamic applications in a jiffy.
 
 ## Compiling & Minifying
 
-`gem install uglifier`
-
-`cd daljs`
-
-`irb`
-
-`daljs = Uglifier.compile( Dir.glob(["lib/dependencies/*", "lib/*"]).map{|f| File.directory?(f) ? nil : File.read(f)}.join("\n"), comments: :none)`
-
-`File.open("dal.min.js", 'w') { |file| file.write(daljs) }`
+1. `gem install uglifier`
+2. `cd daljs`
+3. `irb`
+4. `daljs = Uglifier.compile( Dir.glob(["lib/dependencies/*", "lib/*"]).map{|f| File.directory?(f) ? nil : File.read(f)}.join("\n"), comments: :none)`
+5. `File.open("dal.min.js", 'w') { |file| file.write(daljs) }`

@@ -4,7 +4,7 @@ Use only HTML to create dynamic applications in a jiffy.
 
 ## Getting Started
 
-[Download DalJS](https://github.com/dallas22ca/daljs/archive/master.zip) and open up index.html in your browser.
+[Download DalJS](https://github.com/dallas22ca/daljs/archive/master.zip) and open up `examples/basic.html` in your browser - then look at the source code!
 
 ## Todo
 - Create has_many relationships and attach to objects when found via Dal.db.find().

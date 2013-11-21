@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <script src="../lib/dependencies/jquery-1.9.1.js"></script>
+    <script src="../lib/dependencies/jquery.cookie.js"></script>
+    <script src="../lib/dependencies/moustache.js"></script>
+    <script src="../lib/dependencies/underscore.js"></script>
+    <script src="../lib/events.js"></script>
+    <script src="../lib/models.js"></script>
+    <link rel="stylesheet" href="assets/style.css" type="text/css" media="screen" charset="utf-8">
+  </head>
+  <body>
+    
+    <div id="dal_loading"></div>
+    
+    <div id="sidebar">
+      <a show="Home at #main">Go Home</a>
+      
+      <form for="Contact" email="dallas@excitecreative.ca" email-template="New Signup">
+        <input name="Name" placeholder="Name" shortcut="f" refocus><br>
+        <input name="Birthday" placeholder="Birthday"><br>
+        <input type="submit">
+      </form>
+      
+      <ul collection="Contacts"></ul>
+    </div>
+    
+    <div id="main" startup="Home"></div>
+    
+    <div id="rightbar">
+      Newsfeed:
+      <ul collection="Messages" template="Message Short" sort="desc"></ul>
+    </div>
+    
+  </body>
+  
+  <daltemplate name="Contact">
+    <li><a show="Contact Details at #main">{{ name }}</a></li>
+  </daltemplate>
+
+  <daltemplate name="Contact Details">
+    <div>
+      <h2 editable="name">{{ name }}</h2>
+      <p editable="birthday">{{ birthday }}</p>
+    
+      <hr />
+  
+      <form for="Message">
+        <input name="Body">
+        <input type="submit">
+      </form>
+
+      <ul collection="Messages" read="everyone" write="creator"></ul>
+    </div>
+  </daltemplate>
+
+  <daltemplate name="Message">
+    <li>
+      <b><a show="Home at #main">{{ user.name }}</a> about <a show="Contact Details at #main">{{ contact.name }}</a>: </b>
+      <a show="Message Details at #main">{{ body }}</a>
+    </li>
+  </daltemplate>
+
+  <daltemplate name="Message Details">
+    <div>
+      <h1>{{ body }}</h1>
+      <a show="Contact Details at #main">{{ contact.name }}</a>
+    </div>
+  </daltemplate>
+
+  <daltemplate name="Home">
+    <div>Home page Template</div>
+  </daltemplate>
+
+  <daltemplate name="Message Short">
+    <li>
+      <b><a show="Contact Details at #main">{{ contact.name }}</a>: </b>
+      <a show="Message Details at #main">{{ body }}</a>
+    </li>
+  </daltemplate>
+
+  <daltemplate name="New Signup">
+    We have a new signup named {{ name }}!
+    {{ var_table }}
+    Thanks for signing up!
+  </daltemplate>
+  
+  <script type="text/javascript" charset="utf-8">
+    // SEED DATA
+    $(function(){
+      Dal.create({ model: "Contact", name: "Melanie", birthday: "September 5, 1988" });
+      Dal.create({ model: "Contact", name: "Reanna", birthday: "April 22, 1987" });
+    });
+  </script>
+</html>

@@ -5,13 +5,14 @@
     <script src="https://raw.github.com/dallas22ca/daljs/master/dal.min.js"></script>
   </head>
   <body>
-    <form for="Thing">
-      <input name="body" placeholder="Body" refocus><br>
+    <form for="Contact">
+      <input name="name" placeholder="Name"><br>
+      <input name="birthday" placeholder="Birthday"><br>
       <input type="submit">
     </form>
-    <ul collection="Things"></ul>
+    <ul collection="Contacts"></ul>
   </body>
-  <daltemplate name="Thing">
-    <li>{{ body }}</li>
+  <daltemplate name="Contact">
+    <li>{{ name }} ({{ birthday }})</li>
   </daltemplate>
 </html>

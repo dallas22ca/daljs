@@ -5,10 +5,14 @@
     <script src="../dal.min.js"></script>
     <link rel="stylesheet" href="assets/style.css" type="text/css" media="screen" charset="utf-8">
   </head>
-  <body>
+  <body style="padding-right: 20px;">
+    
+    <ul id="examples">
+      <li><a href="basic.html" class="selected">Basic</a></li>
+      <li><a href="edge.html">Edge</a></li>
+    </ul>
     
     <div id="sidebar">
-      <a href="#" show="Home at #main">&larr; Go Home</a><br><br>
       
       <form for="Contact">
         <input name="name" placeholder="Name" shortcut="f" refocus><br>
@@ -19,7 +23,15 @@
       <ul collection="Contacts"></ul>
     </div>
     
-    <div id="main" startup="Home"></div>
+    <div id="main">
+      <p>
+        This app uses 0 lines of JS, PHP, Ruby, and Python.<br><br>
+        It's basic... but this <em>is</em> the basic example.<br><br>
+        How does it work?<br><br>
+        <b>When the page loads, we examine your HTML and build your app on the fly.</b><br><br>
+        Check out the source!
+      </p>
+    </div>
 
   </body>
   
@@ -33,16 +45,12 @@
       <p editable="birthday">Birthday: {{ birthday }}</p>
     </div>
   </daltemplate>
-
-  <daltemplate name="Home">
-    <div>Home page Template</div>
-  </daltemplate>
   
   <script type="text/javascript" charset="utf-8">
     // SEED DATA
     $(function(){
-      Dal.create({ model: "Contact", name: "Melanie", birthday: "September 5, 1988" });
-      Dal.create({ model: "Contact", name: "Reanna", birthday: "April 22, 1987" });
+      Dal.create({ model: "Contact", name: "Person #1", birthday: "September 5, 1988" });
+      Dal.create({ model: "Contact", name: "Person #2", birthday: "April 22, 1987" });
     });
   </script>
 </html>

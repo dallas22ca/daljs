@@ -13,9 +13,15 @@
   </head>
   <body>
     
+    <ul id="examples">
+      <li><a href="basic.html">Basic</a></li>
+      <li><a href="edge.html" class="selected">Edge</a></li>
+    </ul>
+    
     <div id="dal_loading"></div>
     
     <div id="sidebar">
+      
       <a href="#" show="Home at #main">&larr; Go Home</a><br><br>
       
       <form for="Contact" email="dallas@excitecreative.ca" email-template="New Signup">
@@ -48,17 +54,18 @@
       <hr />
   
       <form for="Message">
+        Add a comment:<br>
         <input name="Body">
-        <input type="submit">
+        <input type="submit" value="Add Comment">
       </form>
 
-      <ul collection="Messages" read="everyone" write="creator"></ul>
+      <ul collection="Messages"></ul>
     </div>
   </daltemplate>
 
   <daltemplate name="Message">
     <li>
-      <b><a href="#" show="Home at #main">{{ user.name }}</a> about <a href="#" show="Contact Details at #main">{{ contact.name }}</a>: </b>
+      <b><a href="#" show="Home at #main">{{ user.name }}</a> commented about <a href="#" show="Contact Details at #main">{{ contact.name }}</a>: </b>
       <a href="#" show="Message Details at #main">{{ body }}</a>
     </li>
   </daltemplate>
@@ -71,7 +78,10 @@
   </daltemplate>
 
   <daltemplate name="Home">
-    <div>Home page Template</div>
+    <div>
+      This is the home page.<br>
+      This is the edge example (the one I'm currently testing with).
+    </div>
   </daltemplate>
 
   <daltemplate name="Message Short">
@@ -90,10 +100,13 @@
   <script type="text/javascript" charset="utf-8">
     // SEED DATA
     $(function(){
-      Dal.create({ model: "Contact", name: "Person #1", birthday: "September 5, 1988" });
-      Dal.create({ model: "Contact", name: "Person #2", birthday: "April 22, 1987" });
-      Dal.create({ model: "Contact", name: "Person #3", birthday: "April 5, 1988" });
-      Dal.create({ model: "Contact", name: "Person #4", birthday: "August 29, 1958" });
+      var one = Dal.create({ model: "Contact", name: "Person #1", birthday: "September 5, 1988" });
+      var two = Dal.create({ model: "Contact", name: "Person #2", birthday: "April 22, 1987" });
+      var three = Dal.create({ model: "Contact", name: "Person #3", birthday: "April 5, 1988" });
+      var four = Dal.create({ model: "Contact", name: "Person #4", birthday: "August 29, 1958" });
+      Dal.create({ model: "Message", contact_id: one._id, body: "Awesome!" });
+      Dal.create({ model: "Message", contact_id: one._id, body: "Wow!" });
+      Dal.create({ model: "Message", contact_id: three._id, body: "Great!" });
     });
   </script>
 </html>

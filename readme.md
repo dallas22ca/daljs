@@ -26,13 +26,12 @@ Create a new text file on your desktop, call it index.html, and fill it with thi
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>My App</title>
     <script src="https://raw.github.com/dallas22ca/daljs/master/dal.min.js"></script>
   </head>
   <body>
     <form for="Contact">
-      <input name="name" placeholder="Name" shortcut="f" refocus><br>
-      <input name="birthday" placeholder="Birthday"><br>
+      <input name="name" placeholder="Name" refocus><br>
       <input type="submit">
     </form>
     <ul collection="Contacts"></ul>
@@ -41,6 +40,8 @@ Create a new text file on your desktop, call it index.html, and fill it with thi
 ```
 
 Watch the magic happen!
+
+## What tags can I use?
 
 ## Todo
 - Update straggling has_manys.

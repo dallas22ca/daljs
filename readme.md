@@ -30,14 +30,14 @@ Create a new text file on your desktop, call it index.html, and fill it with thi
     <script src="https://raw.github.com/dallas22ca/daljs/master/dal.min.js"></script>
   </head>
   <body>
-    <form for="Contact">
-      <input name="name" placeholder="Name" refocus><br>
+    <form for="Thing">
+      <input name="body" placeholder="Body" refocus><br>
       <input type="submit">
     </form>
-    <ul collection="Contacts"></ul>
+    <ul collection="Things"></ul>
   </body>
-  <daltemplate name="Contact">
-    <li>{{ name }}</li>
+  <daltemplate name="Thing">
+    <li>{{ body }}</li>
   </daltemplate>
 </html>
 ```

@@ -36,6 +36,9 @@ Create a new text file on your desktop, call it index.html, and fill it with thi
     </form>
     <ul collection="Contacts"></ul>
   </body>
+  <daltemplate name="Contact">
+    <li>{{ name }}</li>
+  </daltemplate>
 </html>
 ```
 

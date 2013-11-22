@@ -20,7 +20,7 @@ When the page loads, DalJS examines your HTML, builds out DB tables and relation
 
 ## How do I use it?
 
-Create a new text file on your desktop, call it index.html, and fill it with this:
+Create a new text file on your desktop, call it index.html, and fill it with this (also found at example/barebones.html):
 
 ```
 <!DOCTYPE html>
@@ -42,9 +42,12 @@ Create a new text file on your desktop, call it index.html, and fill it with thi
 </html>
 ```
 
-Watch the magic happen!
+Open your file in your favourite web browser and watch the magic happen!
 
-## What tags can I use?
+Have a peek at your JS console to see a little more of what's going on behind the scenes.
+
+## Documentation
+- Visit [DalJS.org](http://daljs.org).
 
 ## Todo
 - Update straggling has_manys.

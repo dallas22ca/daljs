@@ -22,6 +22,16 @@ h2 {
   font-weight: bold;
 }
 
+h4 {
+  font-size: 23px;
+  line-height: 31px;
+  font-weight: bold;
+}
+
+#example1 {
+  padding-right: 20px;
+}
+
 #examples {
   background: #333;
   position: fixed;
@@ -59,6 +69,7 @@ h2 {
   bottom: 0;
   background: #eee;
   padding: 50px 20px 20px 20px;
+  overflow-y: auto;
 }
 
 #rightbar {
@@ -68,7 +79,8 @@ h2 {
   top: 0;
   bottom: 0;
   background: #eee;
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
+  overflow-y: auto;
 }
 
 #dal_loading {

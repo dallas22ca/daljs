@@ -2,10 +2,16 @@
 <html>
   <head>
     <title>App</title>
-    <script src="../dal.min.js"></script>
+    <!--<script src="../dal.min.js"></script>-->
+    <script src="../lib/dependencies/jquery-1.9.1.js"></script>
+    <script src="../lib/dependencies/jquery.cookie.js"></script>
+    <script src="../lib/dependencies/moustache.js"></script>
+    <script src="../lib/dependencies/underscore.js"></script>
+    <script src="../lib/events.js"></script>
+    <script src="../lib/models.js"></script>
     <link rel="stylesheet" href="assets/style.css" type="text/css" media="screen" charset="utf-8">
   </head>
-  <body style="padding-right: 20px;">
+  <body id="example1">
     
     <ul id="examples">
       <li><a href="basic.html" class="selected">Basic</a></li>
@@ -13,6 +19,7 @@
     </ul>
     
     <div id="sidebar">
+      <a href="#" show="Home at #main">&larr; Back to Home</a><br><br>
       
       <form for="Contact">
         <input name="name" placeholder="Name" shortcut="f" refocus><br>
@@ -23,26 +30,36 @@
       <ul collection="Contacts"></ul>
     </div>
     
-    <div id="main">
-      <p>
-        This app uses 0 lines of JS, PHP, Ruby, and Python.<br><br>
-        It's basic... but this <em>is</em> the basic example.<br><br>
-        How does it work?<br><br>
-        <b>When the page loads, we examine your HTML and build your app on the fly.</b><br><br>
-        Check out the source!
-      </p>
-    </div>
+    <div id="main" startup="Home"></div>
 
   </body>
   
   <daltemplate name="Contact">
-    <li><a href="#" show="Contact Details at #main">{{ name }}</a></li>
+    <li><a show="Contact Details at #main" href="#">{{ name }}</a></li>
   </daltemplate>
 
   <daltemplate name="Contact Details">
     <div>
-      <h2 editable="name">Name: {{ name }}</h2>
-      <p editable="birthday">Birthday: {{ birthday }}</p>
+      <h2>Name: <span editable="name">{{ name }}</span></h2>
+      <p>Birthday: <span editable="birthday">{{ birthday }}</span></p>
+    </div>
+  </daltemplate>
+  
+  <daltemplate name="Home">
+    <div>
+      <p>
+        This app uses 0 lines of JS, PHP, Ruby, and Python.<br>
+        Find out more at <a href="https://github.com/dallas22ca/daljs">our Github repo</a>!<br><br>
+      </p>
+      
+      <h4>What should I notice in this example?</h4>
+      <ul>
+        <li>Add a contact, then click on it to view the profile.</li>
+        <li>Click on the name in on the profile page (in the main area with white background) and edit it.</li>
+        <li>Notice real time updates in the sidebar.</li>
+        <li>This app has no back end, but you can plug one in if you want. Your updates will be gone when you reload the page.</li>
+        <li>The entire app is only about 25 lines of plain HTML (no js, php, python, or ruby).</li>
+      </ul>
     </div>
   </daltemplate>
   

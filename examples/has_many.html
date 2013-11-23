@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+    <script src="http://cdn.daljs.org/dal.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css" type="text/css" media="screen" charset="utf-8">
+    <style type="text/css" media="screen">
+      h2 { margin-top: 30px; }
+      ul { margin-top: 0; }
+    </style>
+  </head>
+  
+  <body>
+    <ul id="examples">
+      <li><a href="basic.html">Basic</a></li>
+      <li><a href="has_many.html" class="selected">Has Many</a></li>
+      <li><a href="edge.html">Edge</a></li>
+    </ul>
+    
+    <div id="sidebar">
+      <form for="Project">
+        Add a project:<br>
+        <input name="name" placeholder="Name"><br>
+        <input type="submit">
+      </form>
+    </div>
+    
+    <div id="main">
+      <ul collection="Projects"></ul>
+    </div>
+  </body>
+  
+  <daltemplate name="Project">
+    <li>
+      <h2 editable="name">{{ name }}</h2>
+      
+      <form for="Message">
+        New Message for {{ name }}: <input name="body">
+      </form>
+      
+      <ul collection="Messages"></ul>
+    </li>
+  </daltemplate>
+  
+  <daltemplate name="Message">
+    <li>{{ user.name }}: {{ body }}</li>
+  </daltemplate>
+</html>

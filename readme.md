@@ -52,9 +52,11 @@ Have a peek at your JS console to see a little more of what's going on behind th
 ## Todo
 - Update straggling has_manys.
 - Firebase it.
+- Validations.
+- User login.
 - URL support.
 
-## Compiling & Minifying the Source File
+## How to Minify (for maintainers)
 
 1. `gem install uglifier`
 2. `cd daljs`
@@ -62,3 +64,4 @@ Have a peek at your JS console to see a little more of what's going on behind th
 4. `require 'uglifier'`
 5. `daljs = Uglifier.compile( Dir.glob(["lib/dependencies/*", "lib/*"]).map{|f| File.directory?(f) ? nil : File.read(f)}.join("\n"), comments: :none)`
 6. `File.open("dal.min.js", 'w') { |file| file.write(daljs) }`
+7. `Update CDN if necessary.`

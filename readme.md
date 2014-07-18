@@ -11,6 +11,12 @@ For a little more detail, have a peek at the examples:
 ## If you're really serious...
 Visit [DalJS.org](http://daljs.org).
 
+## What do we want?
+- A complete web app development platform using HTML only.
+- Real time updates.
+- Include login management.
+- Include messaging (email, sms, etc) hooks after model is saved or updated.
+
 ## Todo
 - Add localStorage.
 - User login.
